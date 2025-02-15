@@ -2,10 +2,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: k8demo-db-pvc
+  namespace: k8sdemo
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: k8demo-db-sc
+  storageClassName: do-block-storage  # Cambiado a una StorageClass válida
   resources:
     requests:
       storage: 1Gi
