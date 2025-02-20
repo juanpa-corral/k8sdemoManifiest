@@ -1,0 +1,7 @@
+image:
+  repository: docker.io/YOUR_DOCKER_USERNAME/backend
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 8080
