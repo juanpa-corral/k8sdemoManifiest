@@ -31,8 +31,13 @@ ingress:
   hosts:
     - host: roomscout.online
       paths:
-        - path: /
+        - path: /api
           pathType: Prefix
+          backend:
+            service:
+              name: backend-chart
+              port:
+                number: 8080
   tls: []
 
 resources:
@@ -43,19 +48,19 @@ resources:
     cpu: "250m"
     memory: "256Mi"
 
-livenessProbe:
-  httpGet:
-    path: /health
-    port: 8080
-  initialDelaySeconds: 5
-  periodSeconds: 10
+#livenessProbe:
+ # httpGet:
+ #   path: /api/names
+  #  port: 8080
+ # initialDelaySeconds: 5
+ # periodSeconds: 10
 
-readinessProbe:
-  httpGet:
-    path: /health
-    port: 8080
-  initialDelaySeconds: 5
-  periodSeconds: 10
+#readinessProbe:
+#  httpGet:
+#    path: /api/names
+#    port: 8080
+#  initialDelaySeconds: 5
+#  periodSeconds: 10
 
 autoscaling:
   enabled: true
