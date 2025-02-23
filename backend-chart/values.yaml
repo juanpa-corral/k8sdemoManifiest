@@ -12,6 +12,7 @@ fullnameOverride: ""
 serviceAccount:
   create: true
   name: ""
+  automount: true 
 
 podAnnotations: {}
 podLabels: {}
