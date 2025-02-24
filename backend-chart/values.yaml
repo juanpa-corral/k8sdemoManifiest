@@ -1,29 +1,22 @@
 replicaCount: 2
-
 image:
   repository: juancorral/backend
   pullPolicy: IfNotPresent
-  tag: "0.1.49"
-
+  tag: "0.1.50"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: true
   name: ""
-  automount: true 
-
+  automount: true
 podAnnotations: {}
 podLabels: {}
-
 podSecurityContext: {}
 securityContext: {}
-
 service:
   type: ClusterIP
   port: 8080
-
 ingress:
   enabled: true
   className: "nginx"
@@ -40,7 +33,6 @@ ingress:
               port:
                 number: 8080
   tls: []
-
 resources:
   limits:
     cpu: "500m"
@@ -48,13 +40,12 @@ resources:
   requests:
     cpu: "250m"
     memory: "256Mi"
-
-#livenessProbe:
- # httpGet:
- #   path: /api/names
+    #livenessProbe:
+  # httpGet:
+  #   path: /api/names
   #  port: 8080
- # initialDelaySeconds: 5
- # periodSeconds: 10
+# initialDelaySeconds: 5
+# periodSeconds: 10
 
 #readinessProbe:
 #  httpGet:
@@ -62,13 +53,11 @@ resources:
 #    port: 8080
 #  initialDelaySeconds: 5
 #  periodSeconds: 10
-
 autoscaling:
   enabled: true
   minReplicas: 2
   maxReplicas: 10
   targetCPUUtilizationPercentage: 75
-
 nodeSelector: {}
 tolerations: []
 affinity: {}
