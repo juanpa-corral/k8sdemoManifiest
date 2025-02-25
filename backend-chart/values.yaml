@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: juancorral/backend
   pullPolicy: IfNotPresent
-  tag: "0.2.59"
+  tag: "0.2.60"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
